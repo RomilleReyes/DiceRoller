@@ -60,13 +60,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void on_button_click(View view){
+
+        //for randomly generated number
         TextView tv = this.findViewById(R.id.numbertextView);
 
         Random r = new Random();
         int number = r.nextInt(6)+ 1;
         tv.setText(Integer.toString(number));
 
-        TextView tv2 = this.findViewById(R.id.ResultMessage);
+        //for result message
+        TextView showResultMessage = this.findViewById(R.id.ResultMessage);
 
 
         //method1
@@ -74,27 +77,54 @@ public class MainActivity extends AppCompatActivity {
         mEdit   = findViewById(R.id.enternumberhere);
         Editable guessedText = mEdit.getText();
 
-        //method2
-       // R.id.ResultMessage.getText().ToInt();
+        //for scoring
+        TextView showScoreText = this.findViewById(R.id.ScoreText);
+
+        //for total score
+        totaltries +=1;
 
         //parsing to int
         int guessme = Integer.parseInt(guessedText.toString());
 
 
+        //for error messsage
+        TextView showconstraintError =  this.findViewById(R.id.constraintError);
+
+        if (guessme < 1 || guessme > 6 ){
+            showconstraintError.setText("Please enter a valid number between 1-6");
+        }
+        else{
+            showconstraintError.setText("");
+        }
+
+
         if (guessme == number){
 
-            tv2.setText("Congratulations you guessed the right number");
+            //changes result message
+            showResultMessage.setText("Congratulations you guessed the right number");
+
+            //increments score by 5
+            score += 1;
+
+            showScoreText.setText(score + " / " + totaltries);
 
 
         }
         else{
-            tv2.setText("You did not guess the right number");
+
+            //changes result message
+            showResultMessage.setText("You did not guess the right number");
+
+            showScoreText.setText(score + " / " + totaltries);
         }
 
 
 
     }
 
+    //initialising variables
+    private int score;
+    private int totaltries;
 
 
 
