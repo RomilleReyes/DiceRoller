@@ -70,9 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
         //for result message
         TextView showResultMessage = this.findViewById(R.id.ResultMessage);
-
-
-        //method1
+        
         EditText mEdit;
         mEdit   = findViewById(R.id.enternumberhere);
         Editable guessedText = mEdit.getText();
