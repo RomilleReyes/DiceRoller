@@ -86,10 +86,10 @@ public class MainActivity extends AppCompatActivity {
         //parsing to int
         int guessme = Integer.parseInt(guessedText.toString());
 
-
         //for error messsage
         TextView showconstraintError =  this.findViewById(R.id.constraintError);
 
+        //when entered number is not between 1-6
         if (guessme < 1 || guessme > 6 ){
             showconstraintError.setText("Please enter a valid number between 1-6");
         }
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
             showconstraintError.setText("");
         }
 
-
+        //if entered number is valid
         if (guessme == number){
 
             //changes result message
@@ -107,11 +107,8 @@ public class MainActivity extends AppCompatActivity {
             score += 1;
 
             showScoreText.setText(score + " / " + totaltries);
-
-
         }
         else{
-
             //changes result message
             showResultMessage.setText("You did not guess the right number");
 
