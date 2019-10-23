@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Dice Roller</string>
     <string name="action_settings">Settings</string>
+    <string name="no_number_yet">No number yet!</string>
+    <string name="randomly_generated_number">Randomly generated number</string>
+    <string name="roll_the_dice">Roll the Dice</string>
+    <string name="this_is_your_score">This is your score</string>
+    <string name="enter_a_number_from_1_6">Enter a number from 1-6</string>
 </resources>

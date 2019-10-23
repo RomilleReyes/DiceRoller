@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -70,48 +71,68 @@ public class MainActivity extends AppCompatActivity {
 
         //for result message
         TextView showResultMessage = this.findViewById(R.id.ResultMessage);
-        
-        EditText mEdit;
-        mEdit   = findViewById(R.id.enternumberhere);
-        Editable guessedText = mEdit.getText();
 
-        //for scoring
-        TextView showScoreText = this.findViewById(R.id.ScoreText);
+        EditText mEdit = findViewById(R.id.enternumberhere);
+        //Editable guessedText = mEdit.getText();
 
-        //for total score
-        totaltries +=1;
 
-        //parsing to int
-        int guessme = Integer.parseInt(guessedText.toString());
 
-        //for error messsage
-        TextView showconstraintError =  this.findViewById(R.id.constraintError);
+        Editable guessedText;
 
-        //when entered number is not between 1-6
-        if (guessme < 1 || guessme > 6 ){
-            showconstraintError.setText("Please enter a valid number between 1-6");
+        if (mEdit.getText().toString() != "") {
+
+
+            try {
+                guessedText = mEdit.getText();
+
+                //for scoring
+                TextView showScoreText = this.findViewById(R.id.ScoreText);
+
+                //for total score
+                totaltries +=1;
+
+                //parsing to int
+                int guessme = Integer.parseInt(guessedText.toString());
+                
+
+                //for error messsage
+                TextView showconstraintError =  this.findViewById(R.id.constraintError);
+
+
+
+
+                //when entered number is not between 1-6
+                if (guessme < 1 || guessme > 6 ){
+                    showconstraintError.setText("Please enter a valid number between 1-6");
+                }
+                else{
+                    showconstraintError.setText("");
+                }
+
+                //if entered number is valid
+                if (guessme == number){
+
+                    //changes result message
+                    showResultMessage.setText("Congratulations you guessed the right number");
+
+                    //increments score by 5
+                    score += 1;
+
+                    showScoreText.setText(score + " / " + totaltries);
+                }
+                else{
+                    //changes result message
+                    showResultMessage.setText("You did not guess the right number");
+
+                    showScoreText.setText(score + " / " + totaltries);
+                }
+
+            } catch (Exception ex) {
+                Toast.makeText(MainActivity.this, "Error " + ex.toString(),
+                        Toast.LENGTH_SHORT).show();
+            }
         }
-        else{
-            showconstraintError.setText("");
-        }
 
-        //if entered number is valid
-        if (guessme == number){
-
-            //changes result message
-            showResultMessage.setText("Congratulations you guessed the right number");
-
-            //increments score by 5
-            score += 1;
-
-            showScoreText.setText(score + " / " + totaltries);
-        }
-        else{
-            //changes result message
-            showResultMessage.setText("You did not guess the right number");
-
-            showScoreText.setText(score + " / " + totaltries);
-        }
 
 
 
