@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import android.content.Intent;
 import java.util.Random;
 
 
@@ -62,12 +63,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void on_button_click(View view){
 
-        //for randomly generated number
-        TextView tv = this.findViewById(R.id.numbertextView);
-
-        Random r = new Random();
-        int number = r.nextInt(6)+ 1;
-        tv.setText(Integer.toString(number));
+        randomNumGenerator();
+        showRandNum();
 
         //for result message
         TextView showResultMessage = this.findViewById(R.id.ResultMessage);
@@ -85,7 +82,6 @@ public class MainActivity extends AppCompatActivity {
 
             try {
 
-
                 guessedText = mEdit.getText();
 
                 //for scoring
@@ -97,10 +93,7 @@ public class MainActivity extends AppCompatActivity {
                 //parsing to int
                 int guessme = Integer.parseInt(guessedText.toString());
 
-
                 ConstraintError(guessme);
-
-
 
                 CompareGuess(guessme, number);
 
@@ -115,14 +108,41 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    public void on_button2_click(View view){
+
+        Intent intent = new Intent ( MainActivity.this, Main2Activity.class);
+        startActivity(intent);
+    }
+
 
     //initialising variables
     private int score;
     private int totaltries;
+    private int number;
     //Editable guessedText;
     //EditText mEdit = findViewById(R.id.enternumberhere);
     private TextView showResultMessage;
     private TextView showconstraintError;
+
+    public int randomNumGenerator(){
+        /*
+        //for randomly generated number
+        TextView tv = this.findViewById(R.id.numbertextView);
+
+         */
+
+        Random r = new Random();
+        number = r.nextInt(6)+ 1;
+
+        //tv.setText(Integer.toString(number));
+
+
+        return number;
+    }
+    public void showRandNum(){
+        TextView tv = this.findViewById(R.id.numbertextView);
+        tv.setText(Integer.toString(number));
+    }
 
 
     public void CompareGuess(int guessme, int number){

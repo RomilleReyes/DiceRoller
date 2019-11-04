@@ -6,4 +6,6 @@
     <string name="roll_the_dice">Roll the Dice</string>
     <string name="this_is_your_score">This is your score</string>
     <string name="enter_a_number_from_1_6">Enter a number from 1-6</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_main3">Main3Activity</string>
 </resources>
