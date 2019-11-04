@@ -47,6 +47,8 @@ public class Main3Activity extends AppCompatActivity {
 
 
 
+        //testing
+
         Intent intent = new Intent ( Main3Activity.this, Main2Activity.class);
         startActivity(intent);
     }

@@ -5,7 +5,10 @@
     <string name="randomly_generated_number">Randomly generated number</string>
     <string name="roll_the_dice">Roll the Dice</string>
     <string name="this_is_your_score">This is your score</string>
-    <string name="enter_a_number_from_1_6">Enter a number from 1-6</string>
+    <string name="enter_a_number_from_1_6">Enter a number from 1–6</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_main3">Main3Activity</string>
+    <string name="RandomQuestiion">Main2Activity</string>
+    <string name="Next_Question">Main2Activity</string>
+    <string name="Add_your_own_question">Main2Activity</string>
 </resources>
