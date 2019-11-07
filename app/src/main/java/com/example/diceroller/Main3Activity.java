@@ -13,6 +13,9 @@ import android.text.Editable;
 import android.view.View;
 import android.widget.EditText;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main3Activity extends AppCompatActivity {
 
     @Override
@@ -30,10 +33,15 @@ public class Main3Activity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+
+
     }
 
 
     public void on_cancelbutton_click(View view){
+
+        //brings user back to icebreakers game
         Intent intent = new Intent ( Main3Activity.this, Main2Activity.class);
         startActivity(intent);
     }
@@ -46,11 +54,19 @@ public class Main3Activity extends AppCompatActivity {
         Editable qnEntered = mEdit2.getText();
 
 
+        //adds Qn entered to the arraylist
+        Main2Activity ma2 = new Main2Activity();
+        ma2.addtoQuestionDB(qnEntered.toString());
 
-        //testing
+        MainActivity ma1 = new MainActivity();
+        ma1.increasearlistSize();
 
+
+        //brings user back to icebreakers game
         Intent intent = new Intent ( Main3Activity.this, Main2Activity.class);
         startActivity(intent);
+
+
     }
 
 }

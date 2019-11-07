@@ -110,8 +110,13 @@ public class MainActivity extends AppCompatActivity {
     }
     public void on_button2_click(View view){
 
+        Main2Activity ma2 = new Main2Activity();
+        ma2.QuestionDB();
+
         Intent intent = new Intent ( MainActivity.this, Main2Activity.class);
         startActivity(intent);
+
+
     }
 
 
@@ -119,6 +124,8 @@ public class MainActivity extends AppCompatActivity {
     private int score;
     private int totaltries;
     private int number;
+    static int arlistSize = 6;
+
     //Editable guessedText;
     //EditText mEdit = findViewById(R.id.enternumberhere);
     private TextView showResultMessage;
@@ -132,9 +139,7 @@ public class MainActivity extends AppCompatActivity {
          */
 
         Random r = new Random();
-        number = r.nextInt(6)+ 1;
-
-        //tv.setText(Integer.toString(number));
+        number = r.nextInt(arlistSize);
 
 
         return number;
@@ -193,6 +198,10 @@ public class MainActivity extends AppCompatActivity {
         TextView showScoreText = this.findViewById(R.id.ScoreText);
 
         showScoreText.setText(score + " / " + totaltries);
+    }
+
+    public void increasearlistSize(){
+        arlistSize += 1;
     }
 
 }

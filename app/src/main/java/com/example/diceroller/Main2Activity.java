@@ -35,14 +35,14 @@ public class Main2Activity extends AppCompatActivity {
 
 
 
-        QuestionDB();
+        //QuestionDB();
 
         PlayIceBreakers();
 
 
     }
     private TextView RandomQuestionButton;
-    ArrayList<String> arlist = new ArrayList<>();
+    static ArrayList<String> arlist = new ArrayList<>();
 
 
     public void PlayIceBreakers(){
@@ -64,17 +64,21 @@ public class Main2Activity extends AppCompatActivity {
 
     }
 
+    public ArrayList<String> getList() {
+        return arlist;
+    }
+
     public void on_button_click(View view){
         PlayIceBreakers();
     }
 
-    /*
+    //when button "add your own question" is clicked
     public void on_button2_click(View view){
         Intent intent = new Intent ( Main2Activity.this, Main3Activity.class);
         startActivity(intent);
     }
 
-     */
+
 
 
     public void QuestionDB(){
@@ -90,6 +94,10 @@ public class Main2Activity extends AppCompatActivity {
         arlist.add("If you found a magic lantern and a genie gave you three wishes, what would you" +
                 " wish?");
 
+    }
+
+    public void addtoQuestionDB(String Addme){
+        arlist.add(Addme);
     }
 
 
