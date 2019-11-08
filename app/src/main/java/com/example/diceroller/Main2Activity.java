@@ -34,11 +34,7 @@ public class Main2Activity extends AppCompatActivity {
         });
 
 
-
-        //QuestionDB();
-
         PlayIceBreakers();
-
 
     }
     private TextView RandomQuestionButton;
@@ -49,8 +45,9 @@ public class Main2Activity extends AppCompatActivity {
 
 
         MainActivity ma = new MainActivity();
-        int number = ma.randomNumGenerator();
-
+        //- 1 to prevent it from going out of bounds as there is a +1 in random number generator
+        int arlistSize = arlist.size() - 1;
+        int number = ma.randomNumGenerator(arlistSize);
 
 
         RandomQuestionButton = this.findViewById(R.id.RandQText);
@@ -78,6 +75,11 @@ public class Main2Activity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void on_homebutton_click(View view){
+        Intent intent = new Intent ( Main2Activity.this, MainActivity.class);
+        startActivity(intent);
+    }
+
 
 
 
@@ -85,6 +87,7 @@ public class Main2Activity extends AppCompatActivity {
 
         //ArrayList<String> arlist = new ArrayList<String>();
 
+        arlist.add("");
         arlist.add("If you could go anywhere in the world, where would you go?");
         arlist.add("If you were stranded on a desert island, what three things would you want to" +
                 " take with you?");

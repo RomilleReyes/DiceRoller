@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void on_button_click(View view){
 
-        randomNumGenerator();
+        randomNumGenerator(6);
         showRandNum();
 
         //for result message
@@ -131,15 +131,10 @@ public class MainActivity extends AppCompatActivity {
     private TextView showResultMessage;
     private TextView showconstraintError;
 
-    public int randomNumGenerator(){
-        /*
-        //for randomly generated number
-        TextView tv = this.findViewById(R.id.numbertextView);
-
-         */
+    public int randomNumGenerator(int randMax){
 
         Random r = new Random();
-        number = r.nextInt(arlistSize);
+        number = r.nextInt(randMax)+1;
 
 
         return number;
@@ -155,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
 
         //for result message
         showResultMessage = this.findViewById(R.id.ResultMessage);
+
 
         //if entered number is valid
         if (guessme == number){
@@ -200,6 +196,7 @@ public class MainActivity extends AppCompatActivity {
         showScoreText.setText(score + " / " + totaltries);
     }
 
+    //called when user enters a new icebreaker
     public void increasearlistSize(){
         arlistSize += 1;
     }
